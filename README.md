@@ -1,6 +1,7 @@
 Landing is specialized articles gathering with registered user's comments, tags and gallery
 '3D MODELLER NEWS'
 *** SEE AT BROWSER ***
+https://landing3dmodellernews.herokuapp.com/
 
 App's major features
 

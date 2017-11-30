@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'landing/home'
-
-  get 'landing/about'
-
-  root 'landing#home'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+root 'landing#home'
+  get '/home', to: 'landing#home'
+  get '/about', to: 'landing#about'
+  get '/gallery', to: 'landing#gallery'
 end
