@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   def show
   	@comment = Comment.new
   	@comment.article_id = @article.id
+  	@comment.save
   end
 
   # GET /articles/new
