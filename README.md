@@ -9,14 +9,24 @@ App's major features
 
   Rails version 5.1
 
-  GEMS
+  GEMS: 
   ______________________
 
-  Bootstrap 4.0.0
-  Devise
-  Paperclip
+  Bootstrap 4.0.0 |
+  Devise |
+  Paperclip (not sure yet) |
   Minitest
   ______________________
+  
+     ####  ####        ##      ##  333333333   ##            ##    DDDDDDDD
+       ##  ##  ##      ####    ##  33           ##          ##    DD      DD
+      ##   ##   ##     ## ##   ##  33            ##        ##      DD
+     ##    ##    ##    ##  ##  ##  333333333      ##  ##  ##        DDD 
+      ##   ##   ##     ##   ## ##  33              ## ## ##            DDD
+       ##  ##  ##      ##    ####  33               ######               DD
+      ##   ## ##       ##     ###  33               ######                DD
+     ##    ####        ##      ##  333333333        ##  ##         DDDDDDDDD
+
 
 * System dependencies
 

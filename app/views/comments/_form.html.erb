@@ -1,0 +1,19 @@
+<h6>Post a comment</h6>
+
+<%= form_for [ @article, @comment ] do |f| %>
+<% if user_signed_in? %>
+ <p>
+ 	   <%= f.label :author_name %><br />
+   <%= f.text_field :author_name %>
+ </p>
+  <p>
+   <%= f.label :body %><br />
+   <%= f.text_area :body %>
+  </p>
+  <p>
+   <%= f.submit 'Submit' %>
+  </p>
+  <% else %>
+  <%= link_to "Log in to comment",  new_user_session_path, :class => 'navbar-link' %> 
+  <% end %>
+ <% end %>

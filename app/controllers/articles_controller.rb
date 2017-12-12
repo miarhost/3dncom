@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+  	@comment = Comment.new
+  	@comment.article_id = @article.id
   end
 
   # GET /articles/new
@@ -60,6 +62,7 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  	 
 
   private
     # Use callbacks to share common setup or constraints between actions.
