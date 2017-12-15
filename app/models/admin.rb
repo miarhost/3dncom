@@ -6,7 +6,12 @@ class Admin < ApplicationRecord
   has_many :articles
 
 
-	
+def admin
+  @admin = User.find_by_email("rkraft@rkraft.com.ua")
+ unless @admin
+ 	User.all.admin = false
+ end
+end	
 
 
 end
