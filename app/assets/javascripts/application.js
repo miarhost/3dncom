@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-require turbolinks
+//require turbolinks
 //= require_tree .
 
 /*global $, document, Chart, LINECHART, data, options, window, setTimeout*/
