@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :articles do
   	resources :comments
   end
+  
+  resources :topics
 
   devise_for :admins
   	  devise_for :users do
@@ -12,4 +14,5 @@ root 'landing#home'
   get '/about', to: 'landing#about'
   get '/gallery', to: 'landing#gallery'
   get 'about(/:articles)', to: 'landing#about'
+  get 'home(/:topics)', to: 'landing#home'
 end
