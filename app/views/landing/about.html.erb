@@ -3,5 +3,41 @@
 <h2>About us</h2>
 <p>Be aware of 3d world news, features and tips from our articles collection. Register to comment!</p>
 
-  <%= link_to "Articles", 'articles', class: "btn btn-lg btn-primary" %>
+  <%= link_to "Articles", 'articles', class: "btn btn-lg btn-primary" %> <br /><br />
 </div>
+
+
+ <!-- Header Section-->
+    <section style="background: url(<%= asset_path 'plants.jpg' %>); background-size: cover; background-position: center center" class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11">
+            <h1>Too often I hear 'I don't know what 3D modelling is.' It's a shame, guys.</h1><a href="#" class="text">Get to know about it</a>
+          </div>
+        </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
+      </div>
+    </section>
+    <!-- Intro Section-->
+    <section class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="h3">3D Graphics</h2>
+            <p class="text-big">There is some <strong>definition</strong>  <strong>for you</strong>. 3D computer graphics are often referred to as 3D models. Apart from the rendered graphic, the model is contained within the graphical data file. A model can be displayed visually as a two-dimensional image through a process called 3D rendering or used in non-graphical computer simulations and calculations..</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--BODY on start-->
+ <div class="row d-flex align-items-stretch">
+          <div class="text col-lg-7">
+            <div class="text-inner d-flex align-items-center">
+              <div class="content">
+                <header class="post-header">
+                   <h2 class="h4">Main Software Choices</h2>
+                </header>
+                <h2><strong>3DS MAX</strong></h2><br />
+<p class="text-small">Autodesk 3ds Max, formerly 3D Studio and 3D Studio Max, is a professional 3D computer graphics program for making 3D animations, models, games and images. It is developed and produced by Autodesk Media and Entertainment.[1] It has modeling capabilities and a flexible plugin architecture and can be used on the Microsoft Windows platform. It is frequently used by video game developers, many TV commercial studios and architectural visualization studios. It is also used for movie effects and movie pre-visualization. For its modeling and animation tools, the latest version of 3ds Max also features shaders (such as ambient occlusion and subsurface scattering), dynamic simulation, particle systems, radiosity, normal map creation and rendering, global illumination, a customizable user interface, new icons, and its own scripting language.</p>
+          </div>
+          <div class="image col-lg-5"><img src="<%= asset_path 'maxlogo.jpeg' %>" alt="..."></div>
+        </div>
