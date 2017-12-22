@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, only:[:edit, :update, :destroy]
 
 	def index
@@ -55,4 +55,16 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
     end
      end
 
+       private
+
+    def set_topic
+      @topic = Topic.find(params[:id])
+    end
+
+
+    def topic_params
+      params.require(:topic).permit(:name, :body)
+    end
 end
+
+
