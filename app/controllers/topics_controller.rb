@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only:[:edit, :update, :destroy]
+  #before_action :set_topic, only: [:show, :edit, :update, :destroy]
+#before_action :authenticate_user!, only:[:edit, :update, :destroy]
 
 	def index
 		@topics = Topic.all
@@ -30,8 +30,8 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
     end
   end
 
-  # PATCH/PUT /articles/1
-  # PATCH/PUT /articles/1.json
+  # PATCH/PUT /topics/1
+  # PATCH/PUT /topics/1.json
   def update
     respond_to do |format|
       if @topic.update(topic_params) 
@@ -44,8 +44,8 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
     end
   end
 
-  # DELETE /articles/1
-  # DELETE /articles/1.json
+  # DELETE /topics/1
+  # DELETE /topics/1.json
   def destroy
   	@topic = Topic.find(params[:id])
     @topic.destroy 
