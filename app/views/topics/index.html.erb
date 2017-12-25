@@ -5,3 +5,31 @@
 
   <%= link_to "Home", home_path, class: "btn btn-lg btn-primary" %>
 </div>
+
+
+<p id="notice"><%= notice %></p>
+
+  <head>
+    <ul id="topics">
+       <% @topics.each do |topic| %>
+       <li>
+        <%= link_to topic.title, topic_path(topic) %>
+       </li>
+  </head>
+
+  <body>
+    <ul>
+        <li><%= link_to 'Show', topic %></li><br />
+        <li><%= link_to 'Edit', edit_topic_path(topic) %></li><br />
+        <li><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></li><br />
+      </ul>
+    <% end %>
+    </ul>
+  </body>
+
+
+
+
+<%= link_to image_tag("3d_show.jpg", alt: "Example of work") %>
+
+<%= link_to 'New Topic', new_topic_path %>
