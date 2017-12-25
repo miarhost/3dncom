@@ -13,7 +13,7 @@
     <ul id="topics">
        <% @topics.each do |topic| %>
        <li>
-        <%= link_to topic.title, topic_path(topic) %>
+        <%= link_to topic.name, topic_path(topic) %>
        </li>
   </head>
 
@@ -21,13 +21,11 @@
     <ul>
         <li><%= link_to 'Show', topic %></li><br />
         <li><%= link_to 'Edit', edit_topic_path(topic) %></li><br />
-        <li><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></li><br />
+        <li><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></li><br />
       </ul>
     <% end %>
     </ul>
   </body>
-
-
 
 
 <%= link_to image_tag("3d_show.jpg", alt: "Example of work") %>

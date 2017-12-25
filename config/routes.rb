@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :articles do
   	resources :comments
   end
   
     resources :topics
+       resources :messages
  
 
   devise_for :admins

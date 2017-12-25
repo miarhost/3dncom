@@ -7,6 +7,7 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
 	end
 
 	def show 
+
 	end
 
 	def new

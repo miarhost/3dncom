@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220174052) do
+ActiveRecord::Schema.define(version: 20171225180039) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20171220174052) do
 
 # Could not dump table "comments" because of following StandardError
 #   Unknown type 'users' for column 'reference'
+
+  create_table "messages", force: :cascade do |t|
+    t.string "author"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "models", force: :cascade do |t|
     t.string "Article"
