@@ -11,6 +11,14 @@
 </p>
 
 
+<p>
+Messages:
+ <% @topic.messages.each do |message| %>
+   <%= link_to message.author, message_path(message) %>
+   <% end %>
+<%= link_to 'New Message', new_message_path %>
+  
+</p>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

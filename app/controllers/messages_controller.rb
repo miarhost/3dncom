@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message = Message.find(params[:id])
   end
 
   # GET /messages/new
@@ -19,13 +20,14 @@ class MessagesController < ApplicationController
 
   # GET /messages/1/edit
   def edit
-  end
+      end
 
   # POST /messages
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @message.topic_id = params[:topic_id]
+    @message.save
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
@@ -35,6 +37,7 @@ class MessagesController < ApplicationController
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
+    #redirect_to topic_path(@message.topic)
   end
 
   # PATCH/PUT /messages/1
