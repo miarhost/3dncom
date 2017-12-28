@@ -12,6 +12,7 @@ class User < ApplicationRecord
 	validates :password, presence: true, length: { minimum: 6 }
   has_many :comments
   has_many :topics
+  has_many :messages, through: :topics, dependent: :destroy 
 
 def name
 end

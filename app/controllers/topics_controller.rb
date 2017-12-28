@@ -10,7 +10,6 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
   	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save
-
 	end
 
 	def new
