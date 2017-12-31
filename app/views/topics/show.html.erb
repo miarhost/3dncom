@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @topic.name %>
+   <%= @topic.name %>   
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @topic.body %>
+   <%= @topic.body %>
 </p>
 
+<p>
+<strong>Author:</strong> 
+<%= @topic.author_name %>
+</p>
 
 <h3>Messages</h3>
 <%= render partial: 'topics/message', collection: @topic.messages %>

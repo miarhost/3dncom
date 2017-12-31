@@ -9,25 +9,32 @@
 
 <p id="notice"><%= notice %></p>
 
-  <head>
-    <ul id="topics">
-       <% @topics.each do |topic| %>
-       <li>
-        <%= link_to topic.name, topic_path(topic) %>
-       </li>
-  </head>
 
-  <body>
-    <ul>
-        <li><%= link_to 'Show', topic %></li><br />
-        <li><%= link_to 'Edit', edit_topic_path(topic) %></li><br />
-        <li><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></li><br />
-      </ul>
+  <table>
+  <thead>
+    <tr>
+      <th>Topics</th>
+      <th>Authors</th>
+      <th>Messages</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= link_to topic.name, topic_path(topic) %></td>
+        <td><%= link_to topic.author_name  %></td>
+
+      
+      </tr>
     <% end %>
-    </ul>
-  </body>
+  </tbody>
+</table>
 
-
-<%= link_to image_tag("3d_show.jpg", alt: "Example of work") %>
+<br>
 
 <%= link_to 'New Topic', new_topic_path %>
+
+<%= link_to image_tag("planets_.jpg", alt: "space works") %>
+

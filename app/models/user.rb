@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :messages, through: :topics, dependent: :destroy 
 
 def name
+
 end
 
 def admin

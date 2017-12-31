@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 
   devise_for :admins
   	  devise_for :users do
-  	  	    resources :comments
+           resources :comments
   	  	    resourcces :messages
+             resources :topics
   	      end  # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 root 'landing#home'
   get '/home', to: 'landing#home'

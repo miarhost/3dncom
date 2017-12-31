@@ -1,13 +1,13 @@
 class TopicsController < ApplicationController
  before_action :set_topic, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only:[:edit, :update, :destroy]
+before_action :authenticate_user!, only:[:create, :edit, :update, :destroy]
 
 	def index
 		@topics = Topic.all
 	end
 
 	def show 
-  	@message = Message.new
+   	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save
 	end
@@ -22,7 +22,7 @@ before_action :authenticate_user!, only:[:edit, :update, :destroy]
       def create
     @topic = Topic.new(topic_params) 
 
-    respond_to do |format|
+       respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
