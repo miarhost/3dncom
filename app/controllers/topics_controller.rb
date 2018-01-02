@@ -11,7 +11,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 	def show 
 
-
+@topic = Topic.find(params[:id])
    	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save
