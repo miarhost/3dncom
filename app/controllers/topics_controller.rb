@@ -30,6 +30,7 @@ def create
   if  @topic.save
  redirect_to topics_path(@topics)
    else
+    flash[:warning] = "Your topic can't be saved!"
      redirect_to topics_path(@topics)
    end
 end
