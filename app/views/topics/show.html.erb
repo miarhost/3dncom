@@ -10,7 +10,7 @@
 
 <p>
 <strong>Author:</strong> 
-<%= topic.user.name %>
+<%= current_user.name %>
 </p>
 
 <h3>Messages</h3>
@@ -18,4 +18,5 @@
 <%= render partial: 'messages/form' %>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Destroy', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', topics_path %>

@@ -57,6 +57,7 @@ end
       format.html { redirect_to topics_url, notice: 'Topic was successfully deleted.' }
       format.json { head :no_content }
     end
+    
      end
 
        private
