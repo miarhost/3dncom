@@ -1,14 +1,17 @@
 class TopicsController < ApplicationController
  before_action :set_topic, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only:[:create, :edit, :update, :destroy]
+before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 	def index
 		@topics = Topic.all
+     if !user_signed_in?
+  redirect_to new_user_session_path
+end
 	end
 
 	def show 
-    @topic = Topic.find(params[:id])
-    @author_name = current_user.name
+
+
    	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save
@@ -21,19 +24,15 @@ before_action :authenticate_user!, only:[:create, :edit, :update, :destroy]
     def edit
     end
 
-      def create
-    @topic = Topic.new(topic_params) 
-
-       respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
-      else
-        format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+def create
+  @topic = current_user.topics.build(topic_params)
+   @topic.user_id = @topic.user.id
+  if  @topic.save
+ redirect_to topics_path(@topics)
+   else
+     redirect_to topics_path(@topics)
+   end
+end
 
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json

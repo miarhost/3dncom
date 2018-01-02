@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229140140) do
+ActiveRecord::Schema.define(version: 20180102102216) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20171229140140) do
   end
 
 # Could not dump table "topics" because of following StandardError
-#   Unknown type 'user_id' for column 'topic'
+#   Unknown type '' for column 'topic'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
