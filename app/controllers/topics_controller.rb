@@ -4,9 +4,9 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 	def index
 		@topics = Topic.all
-     if !user_signed_in?
-  redirect_to new_user_session_path
-end
+     #if !user_signed_in?
+  #redirect_to new_user_session_path
+#end
 	end
 
 	def show 
@@ -57,7 +57,7 @@ end
       format.html { redirect_to topics_url, notice: 'Topic was successfully deleted.' }
       format.json { head :no_content }
     end
-    
+
      end
 
        private
