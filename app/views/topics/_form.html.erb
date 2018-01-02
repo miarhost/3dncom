@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :topic_name %>
     <%= form.text_field :name, id: :topic_name %>
   </div>
 
     <div class="field">
     <%= form.label :author_name %>
-    <%= form.text_field :author_name, user_id: :topic_name %>
+    <%= current_user.name %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
+    <%= form.label :your_text %>
     <%= form.text_area :body, id: :topic_body %>
   </div>
 
