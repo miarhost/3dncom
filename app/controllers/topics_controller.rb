@@ -7,6 +7,8 @@ before_action :authenticate_user!, only:[:create, :edit, :update, :destroy]
 	end
 
 	def show 
+    @topic = Topic.find(params[:id])
+    @author_name = current_user.name
    	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save

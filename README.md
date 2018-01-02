@@ -5,16 +5,16 @@ https://landing3dmodellernews.herokuapp.com/
 
 App's major features
 
-* Ruby version 2.3
+* Ruby version 2.3.3
 
-  Rails version 5.1
+  Rails version 5.1.4
 
   GEMS: 
   ______________________
 
   Bootstrap 4.0.0 |
   Devise |
-  Paperclip (not sure yet) |
+
   Minitest
   ______________________
   
