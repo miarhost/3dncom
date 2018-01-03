@@ -20,7 +20,17 @@
     </tr>
   </thead>
 
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= link_to topic.name, topic_path(topic) %></td>
+        <td><%= current_user.name %></td>
 
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
