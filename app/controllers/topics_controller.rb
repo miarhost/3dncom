@@ -4,8 +4,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 	def index
 		@topics = Topic.all
-
-	end
+    end
 
 	def show 
 
@@ -13,6 +12,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
    	@message = Message.new
   	@message.topic_id = @topic.id
   	@message.save
+    @topic.messages.count
 	end
 
 	def new
