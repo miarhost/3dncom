@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     end
 
   devise_for :admins
-  	  devise_for :users do
+  	  devise_for :users do #controllers: {sessions: 'users/sessions'}
+      #as :user do 
+      #get 'signin', to: 'devise/sessions#new', as: :new_user_session
+       #end
            resources :comments
   	  	    resourcces :messages
              resources :topics
@@ -20,4 +23,10 @@ root 'landing#home'
   get '/gallery', to: 'landing#gallery'
   get 'about(/:articles)', to: 'landing#about'
   get 'home(/:topics)', to: 'landing#home'
+  #get '/users' => 'landing#home', as: :user_root    #temporarily
+
+  #devise_scope :user do
+    #get 'login', to: 'landing#home' 
+ #end
+
 end
