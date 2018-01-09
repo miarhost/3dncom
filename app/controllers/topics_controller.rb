@@ -13,6 +13,11 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
   	@message.topic_id = @topic.id
   	@message.save
     @topic.messages.count
+    if @topic.messages.count > 0
+    @topic.messages.last.created_at
+  end
+  
+
 	end
 
 	def new

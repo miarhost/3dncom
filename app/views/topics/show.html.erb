@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class="avatar"><%= gravatar_for_topics(@topic.user) %></div>
+
+
 <p>
    <%= @topic.name %>   
 </p>

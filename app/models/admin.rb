@@ -7,7 +7,7 @@ class Admin < ApplicationRecord
 
 
 def admin
-  @admin = User.find_by_email("rkraft@rkraft.com.ua")
+  @admin = User.find_by_email("rghostme@gmail.com")
  unless @admin
  	User.all.admin = false
  end

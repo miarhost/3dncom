@@ -8,11 +8,22 @@ module ApplicationHelper
     end
     end
 
-    def gravatar_for(user, opts = {})
-    	opts[:alt] = user.name
-    	image_tag "https://www.gravatar.com/avatar
-    	#/#{Digest::MD5.hexdigest(user.email)}?s=#{opts.delete(:size) { 40 }}",
-    	       opts
+    def gravatar_for(user, size: 25)
+           gravatar_url =  "https://www.gravatar.com/avatar"
+       gravatar_id =  Digest::MD5.hexdigest(user.email)
+       image_tag(gravatar_url, alt: user.name)
+    end
+
+        def gravatar_for_topics(user, size: 10)
+           gravatar_url =  "https://www.gravatar.com/avatar"
+       gravatar_id =  Digest::MD5.hexdigest(user.email)
+       image_tag(gravatar_url, alt: user.name)
+    end
+
+        def gravatar_for_admin(user, size: 25)
+           gravatar_url =  "https://www.gravatar.com/avatar"
+       gravatar_id =  Digest::MD5.hexdigest(user.email)
+       image_tag(gravatar_url, alt: user.name)
     end
 
 end
