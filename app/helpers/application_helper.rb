@@ -9,9 +9,10 @@ module ApplicationHelper
     end
 
     def gravatar_for(user, size)
-           gravatar_url =  "https://www.gravatar.com/avatar/#{gravatar_url}.png?s=#{size}"
-       gravatar_id =  Digest::MD5.hexdigest(user.email)
-       image_tag(gravatar_url, alt: user.name)
-    end
+         gravatar_id =  Digest::MD5.hexdigest(user.email)
+           gravatar_url =  "https://secure.gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+      
+       image_tag(gravatar_url, alt: user.name, class: "gravatar")
+     end
 
 end
