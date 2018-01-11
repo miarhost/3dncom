@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
- before_action :set_topic, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only: [:edit, :update, :destroy]
-
+ before_action :set_topic, only: [:show, :edit, :update]
+before_action :authenticate_user!, only: [:edit, :update]
+before_action :authenticate_admin!, only: [:destroy]
 	def index
 		@topics = Topic.all
     end
@@ -58,8 +58,9 @@ end
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
+
   	@topic = Topic.find(params[:id])
-    @topic.destroy 
+     @topic.destroy
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Topic was successfully deleted.' }
       format.json { head :no_content }
