@@ -8,7 +8,13 @@ Rails.application.routes.draw do
        resources :messages
     end
 
-  devise_for :admins
+  devise_for :admins, controllers: {
+        sessions: 'admins/sessions'
+      }
+    
+  devise_scope :admin do
+    get "admins/home"=> "admins/sessions#home", :as => "admin_home"
+  end
   	  devise_for :users do #controllers: {sessions: 'users/sessions'}
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session

@@ -22,5 +22,12 @@ class ApplicationController < ActionController::Base
 	    	devise_parameter_sanitizer.permit(:sign_in) do |user_params|
 	    	 user_params.permit(:name, :email, :password)
 	    	end
+
+	         devise_parameter_sanitizer.permit(:sign_up) do |admin_params|
+	        admin_params.permit(:name, :email, :password)
+	    	end
+	    	devise_parameter_sanitizer.permit(:sign_in) do |admin_params|
+	    	admin_params.permit(:name, :email, :password)
+	    	end
 	   end
 end
