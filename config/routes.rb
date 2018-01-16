@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get "admins/home"=> "admins/sessions#home", :as => "admin_home"
   end
+
+    resources :topics do
+       resources :messages
+    end
+
       devise_for :users do #controllers: {sessions: 'users/sessions'}
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session
@@ -34,14 +39,5 @@ Rails.application.routes.draw do
   	resources :comments
   end
     
-  resources :topics do
-       resources :messages
-    end
-
-   resources :messages
-
-
-
-
 
 end
