@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get '/home', to: 'landing#home'
   get '/about', to: 'landing#about'
   get '/gallery', to: 'landing#gallery'
+  get 'blender', to: 'landing#blender'
   get 'about(/:articles)', to: 'landing#about'
   get 'home(/:topics)', to: 'landing#home'
+  get 'home(/:blender)', to: 'landing#home'
 
     devise_for :admins, controllers: {
         sessions: 'admins/sessions'
