@@ -25,3 +25,5 @@
 /.env
 
 .env
+
+/ignoreme/
