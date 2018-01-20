@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get "admins/home"=> "admins/sessions#home", :as => "admin_home"
   end
-
+   
     resources :topics do
        resources :messages
     end
