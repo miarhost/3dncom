@@ -44,8 +44,14 @@ ActiveRecord::Schema.define(version: 20180120180822) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "comments" because of following StandardError
-#   Unknown type 'users' for column 'reference'
+  create_table "comments", force: :cascade do |t|
+    t.string "author_name"
+    t.text "body"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string "author"
@@ -56,31 +62,14 @@ ActiveRecord::Schema.define(version: 20180120180822) do
     t.index ["topic_id"], name: "index_messages_on_topic_id"
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "Article"
-    t.string "title"
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "Admin"
-    t.string "name"
-    t.string "password"
-    t.index ["email"], name: "index_models_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
-
-# Could not dump table "topics" because of following StandardError
-#   Unknown type '' for column 'topic'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -96,7 +85,6 @@ ActiveRecord::Schema.define(version: 20180120180822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

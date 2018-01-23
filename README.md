@@ -5,7 +5,7 @@ https://landing3dmodellernews.herokuapp.com/
 
 App's major features
 
-* Ruby version 2.4.1
+* Ruby version 2.3.4
 
   Rails version 5.1.4
 
