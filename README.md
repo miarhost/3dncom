@@ -1,20 +1,20 @@
-Landing is specialized articles gathering with registered user's comments, tags and gallery
+3D News  is specialized pages gathering about 3ds Max, Maya and Blender with registered user's forum, articles and messaging. Articles and forum threads are added and deleted by admin, where forum topics, messages and articles' comments are created by users. 
 '3D MODELLER NEWS'
 *** SEE AT BROWSER ***
 https://landing3dmodellernews.herokuapp.com/
 
 App's major features
 
-* Ruby version 2.3.3
+* Ruby version 2.4.1
 
   Rails version 5.1.4
 
   GEMS: 
   ______________________
 
-  Bootstrap 4.0.0 |
+  Bootstrap 4.0.0 and Sass |
   Devise |
-
+  Foreman gem for mailer configurations
   Minitest
   ______________________
   
