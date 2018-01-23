@@ -1,7 +1,6 @@
 class BranchesController < ApplicationController
-	class ArticlesController < ApplicationController
-  before_action :set_branch, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, only:[:edit, :update, :destroy]
+    before_action :set_branch, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_admin!
 
   # GET /branches
   # GET /branches.json
@@ -13,22 +12,51 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-   	@topic = Topic.new
+
+
   end
 
-  # GET /articles/new
   def new
     @branch = Branch.new
+        @topic = Topic.new
+    @topic.branch_id = @branch.id
+    @topic.save
+    @topics = Topic.all
+    @branch.topics.count
+    if @branch.topics.count > 0
+    @branch.topics.last.user.name
+    @branch.topics.last.created_at
+    end
   end
 
-  # GET /articles/1/edit
   def edit
   end
 
-  # POST /articles
-  # POST /articles.json
-
-  	 
+  def create
+    @branch = Branch.new(branch_params) 
+    respond_to do |format|
+      if @branch.save
+        format.html { redirect_to @branch, notice: 'Thread saved.' }
+        format.json { render :show, status: :created, location: @branch }
+      else
+        format.html { render :new }
+        format.json { render json: @branch.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def update
+    respond_to do |format|
+      if @branch.update(branch_params) 
+        format.html { redirect_to @branch, notice: 'Thread was successfully updated.' }
+        format.json { render :show, status: :ok, location: @branch }
+      else
+        format.html { render :edit }
+        format.json { render json: @branch.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+def destroy
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -42,4 +70,4 @@ class BranchesController < ApplicationController
     end
 end
 
-end
+
