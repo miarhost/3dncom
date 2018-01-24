@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
  before_action :set_topic, only: [:show, :edit, :update]
 before_action :authenticate_user!, only: [:edit, :update]
 before_action :authenticate_admin!, only: [:destroy]
+
 	def index
 		@topics = Topic.all
     end
@@ -33,11 +34,12 @@ before_action :authenticate_admin!, only: [:destroy]
 def create
   @topic = current_user.topics.build(topic_params)
    @topic.user_id = @topic.user.id
+    @topic.branch_id = params[:branch_id]
   if  @topic.save
- redirect_to topics_path(@topics)
+ redirect_to branch_path(@topic.branch[:id])
    else
     flash[:warning] = "Your topic can't be saved!"
-     redirect_to topics_path(@topics)
+     redirect_to branch_path(@topic.branch[:id])
    end
 end
 

@@ -12,21 +12,12 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-
-
+render partial: "topics"
   end
 
   def new
     @branch = Branch.new
-        @topic = Topic.new
-    @topic.branch_id = @branch.id
-    @topic.save
-    @topics = Topic.all
-    @branch.topics.count
-    if @branch.topics.count > 0
-    @branch.topics.last.user.name
-    @branch.topics.last.created_at
-    end
+
   end
 
   def edit
@@ -55,6 +46,7 @@ class BranchesController < ApplicationController
       end
     end
   end
+  
 def destroy
 end
 

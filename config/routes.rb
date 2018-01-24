@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get "admins/home"=> "admins/sessions#home", :as => "admin_home"
   end
+
+    resources :branches do
+       resources :topics
+    end
    
     resources :topics do
        resources :messages
@@ -32,7 +36,7 @@ Rails.application.routes.draw do
           end # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 
   #get '/users' => 'landing#home', as: :user_root    #temporarily
-
+ 
   #devise_scope :user do
     #get 'login', to: 'landing#home' 
  #end
