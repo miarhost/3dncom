@@ -12,7 +12,6 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-render partial: "topics"
   end
 
   def new
