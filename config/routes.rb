@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'blender', to: 'landing#blender'
   get 'about(/:articles)', to: 'landing#about'
   get 'home(/:topics)', to: 'landing#home'
+  get 'home(/:branches)', to: 'landing#home'
   get 'home(/:blender)', to: 'landing#home'
 
     devise_for :admins, controllers: {
