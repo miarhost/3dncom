@@ -2,7 +2,6 @@ module CarouselHelper
 def carousel_for(images)
  Carousel.new(self, images).html
  end
-end
 
  class Carousel
  def initialize(view,images)
@@ -65,4 +64,4 @@ def control_tag(direction)
 
 end
 
-
+end

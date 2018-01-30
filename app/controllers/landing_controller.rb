@@ -1,6 +1,5 @@
 class LandingController < ApplicationController
-
-
+include CarouselHelper
   def home
   end
 
@@ -8,6 +7,7 @@ class LandingController < ApplicationController
   end
 
   def gallery
+ @image_urls = ["night.jpg", "6.jpg"]
   end
   
 end
