@@ -5,13 +5,13 @@ def carousel_for(images)
 
  class Carousel
  def initialize(view,images)
-  @view, @images = view,images
+  @view, @images = view, images
   @uid = SecureRandom.hex(6)
  end
 
  def html
- content = view.safe_join([indicators, slides, controls])
- view.content_tag(:div, content, class: 'carousel slide')
+ content = safe_join([indicators, slides, controls])
+ content_tag(:div, content, uid: uid, class: 'carousel slide')
  end
 
  private
@@ -50,15 +50,15 @@ end
  end
 
  def controls
- 	safe_join([control_tag('left'), control_tag('right')])
+ 	safe_join([control_tag('prev'), control_tag('next')])
  end
 
 def control_tag(direction)
 	options = {
-		class: "#{direction} carousel-control",
-			data: { slide: direction == 'left' ? 'prev' : 'next' }
+		class: "carousel-control-#{direction}",
+			data: { slide: direction == 'prev' ? 'prev' : 'next' }
 	}
-	icon = content_tag(:i, nil, class: "glyphicon glyphicon-chevron-#{direction}")
+	icon = content_tag(:i, '', class: "carousel-control-#{direction}-icon")
 	control = link_to(icon, "##{uid}", options)
  end
 
