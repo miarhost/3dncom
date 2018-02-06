@@ -7,7 +7,8 @@ class LandingController < ApplicationController
   end
 
   def gallery
- @image_urls = ["night.jpg", "6.jpg", "studio.jpg"]
-  end
+   @image_urls = ["night.jpg", "6.jpg", "studio.jpg"]
+    end
   
+    
 end

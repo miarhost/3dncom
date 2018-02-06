@@ -12,5 +12,16 @@
 //
 //= require rails-ujs
 //require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
+//= require carousel
+//= require popover
+//= require bootstrap
 //= require_tree .
 /*global $, document, Chart, LINECHART, data, options, window, setTimeout*/
+
+
+
+
+
+
