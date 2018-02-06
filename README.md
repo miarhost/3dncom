@@ -1,7 +1,7 @@
 3D News  is specialized pages gathering about 3ds Max, Maya and Blender with registered user's forum, articles and messaging. Articles and forum threads are added and deleted by admin, where forum topics, messages and articles' comments are created by users. 
 '3D MODELLER NEWS'
 *** SEE AT BROWSER ***
-https://landing3dmodellernews.herokuapp.com/
+https://highpoly.herokuapp.com/
 
 App's major features
 
@@ -14,8 +14,11 @@ App's major features
 
   Bootstrap 4.0.0 and Sass |
   Devise |
-  Foreman gem for mailer configurations
-  Minitest
+  Foreman gem for mailer configurations |
+  Minitest |
+  jquery - rails 
+
+  
   ______________________
   
 
