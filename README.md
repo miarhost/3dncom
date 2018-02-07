@@ -16,8 +16,9 @@ App's major features
   Devise |
   Foreman gem for mailer configurations |
   Minitest |
-  jquery - rails 
-
+  jquery - rails |
+  opal -ferro
+ 
   
   ______________________
   

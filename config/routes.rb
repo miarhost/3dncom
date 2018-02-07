@@ -18,6 +18,15 @@ Rails.application.routes.draw do
     get "admins/home"=> "admins/sessions#home", :as => "admin_home"
   end
 
+   resources :admins do
+     resources :topicthreads
+    end
+
+    resources :topicthreads do
+      resources :branches
+    end
+
+
     resources :branches do
        resources :topics
     end

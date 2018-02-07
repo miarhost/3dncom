@@ -1,0 +1,2 @@
+class TopicthreadsController < ApplicationController
+end
