@@ -4,7 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
-
+  has_many :topicthreads
 
 def admin
   @admin = User.find_by_email("rghostme@gmail.com")
