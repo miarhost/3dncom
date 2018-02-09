@@ -16,9 +16,6 @@ class User < ApplicationRecord
 
 
 
-def admin
-  @admin = User.find_by_email("rghostme@gmail.com")
-  @admin.admin = true
-end
+
 
 end
