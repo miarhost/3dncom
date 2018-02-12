@@ -1,4 +1,8 @@
 class TopicthreadsController < ApplicationController
+
+  before_action :set_topitcthread, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy]
+
 	def index 
 		@topicthreads = Topicthread.all
 	end
@@ -22,6 +26,7 @@ class TopicthreadsController < ApplicationController
         format.json { render json: @topicthread.errors, status: :unprocessable_entity }
       end
     end
+  end
 
  def update
     respond_to do |format|
@@ -48,6 +53,9 @@ class TopicthreadsController < ApplicationController
 
 
 
+     def set_topicthread
+      @topicthread = Topicthread.find(params[:id])
+    end
 
     def topicthread_params
       params.require(:topicthread).permit(:name)
@@ -55,5 +63,5 @@ class TopicthreadsController < ApplicationController
 
 
 
-end
+
 end

@@ -7,7 +7,7 @@ def home
   self.resource = warden.authenticate!(auth_options)
   set_flash_message!(:notice, :signed_in)
   sign_in(resource)
-  respond_with resouce, location: after_sign_in_path_for(resource)
+  respond_with resource, location: after_sign_in_path_for(resource)
 end
 
   # GET /resource/sign_in
@@ -19,6 +19,7 @@ end
  def sign_in(name, email)
     super
   end
+
 
   # DELETE /resource/sign_out
   def destroy
