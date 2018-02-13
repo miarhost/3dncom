@@ -10,22 +10,22 @@ Rails.application.routes.draw do
   get 'home(/:branches)', to: 'landing#home'
   get 'home(/:blender)', to: 'landing#home'
 
-    devise_for :admin, path: 'admin', skip: :registrations do
+    devise_for :admins, controllers: {
+               sessions: 'admins/sessions'
+      }
   
-    resources :topicthreads
-    resources :articles
-  end
 
-   
+    devise_scope :admin do
+    get "admin/home"=> "admin/sessions#home", :as => 'admin'
+    end
 
-    resources :topicthreads do
+       resources :topicthreads do
       resources :branches
-    end
+        end
 
-
-    resources :branches do
-       resources :topics
-    end
+       resources :branches do
+         resources :topics
+       end 
    
     resources :topics do
        resources :messages
