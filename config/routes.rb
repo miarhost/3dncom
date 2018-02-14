@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     get "admin/home"=> "admin/sessions#home", :as => 'admin'
     end
 
-       resources :topicthreads do
-      resources :branches
+      resources :topicthreads do
+       resources :branches
         end
 
        resources :branches do
