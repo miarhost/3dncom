@@ -1,6 +1,6 @@
 class TopicthreadsController < ApplicationController
 
-  before_action :set_topitcthread, only: [:show, :edit, :update, :destroy]
+  before_action :set_topicthread, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy]
 
 	def index 

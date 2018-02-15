@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208150212) do
+ActiveRecord::Schema.define(version: 20180215124233) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180208150212) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "topicthread_id"
+    t.index ["topicthread_id"], name: "index_branches_on_topicthread_id"
   end
 
   create_table "comments", force: :cascade do |t|

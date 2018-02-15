@@ -24,6 +24,7 @@ class BranchesController < ApplicationController
 
   def create
     @branch = Branch.new(branch_params) 
+    @branch.topicthread_id = params[:topicthread_id]
     respond_to do |format|
       if @branch.save
         format.html { redirect_to @branch, notice: 'Thread saved.' }

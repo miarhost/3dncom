@@ -10,12 +10,13 @@
 <p id="notice"><%= notice %></p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <thead style= "background-color: rgba(255, 255, 255, 0)" >
-  <thead>@topicthread.name</thead>
+   <% @topicthreads.each do |topicthread| %>
+  <thead><%= link_to topicthread.name, topicthread_path(topicthread) %></thead>
    <tbody>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <thead style= "background-color: #379392" >
       <tr>
-      <th>Thread</th>
+      <th>Branch</th>
       <th>Last topic</th>
       <th>By</th>
       <th>At</th>
@@ -25,19 +26,16 @@
   </thead>
  
    <tbody>
-    <% @branches.each do |branch| %>
+    <% @topicthread.branches.each do |branch| %>
        <tr>
-        <td><%= link_to branch.title, branch_path(branch) %></td>
-        <td><%= branch.topics.last.name %></td>
-        <td><%= branch.topics.last.user.name %></td>
-        <td><%= branch.topics.last.created_at %></td>
-        <td><%= pluralize(branch.topics.last.messages.count, "messages") %></td>
+        <td><%= link_to topicthread.branch.name, topicthread_path(topicthread) %></td>
+    
       </tr>
-     <% end %>
-  </tbody>
+     <% end %> 
+   </tbody>
+   <% end %>
 </table>
- </tbody>
-</table>
+
 
 <br>
 
