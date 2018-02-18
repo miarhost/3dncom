@@ -1,10 +1,10 @@
-<%= form_with(model: branch, local: true) do |form| %>
-  <% if branch.errors.any? %>
+<%= form_with(model: topicthread, local: true) do |form| %>
+  <% if topicthread.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(branch.errors.count, "error") %> prohibited this thread from being saved:</h2>
+      <h2><%= pluralize(topicthread.errors.count, "error") %> prohibited this thread from being saved:</h2>
 
       <ul>
-      <% branch.errors.full_messages.each do |message| %>
+      <% topicthread.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

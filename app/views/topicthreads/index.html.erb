@@ -25,13 +25,7 @@
     </tr>
   </thead>
  
-   <tbody>
-    <% @topicthread.branches.each do |branch| %>
-       <tr>
-        <td><%= link_to topicthread.branch.name, topicthread_path(topicthread) %></td>
-    
-      </tr>
-     <% end %> 
+  <% render partial: "branchlist" %>
    </tbody>
    <% end %>
 </table>
