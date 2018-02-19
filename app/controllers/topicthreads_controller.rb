@@ -3,17 +3,28 @@ class TopicthreadsController < ApplicationController
   before_action :set_topicthread, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy]
 
-	def index 
-		@topicthreads = Topicthread.all
-	end
+  def index 
+    @topicthreads = Topicthread.all
+        @branch = Branch.new
+    
+    @branch.save
+  end
+
+
 
 	def new 
 	 @topicthread = Topicthread.new
 	end
 
+
+
 	def show
 	@topicthread = Topicthread.find(params[:id])
+          @branch = Branch.new
+     @branch.topicthread_id = params[:topicthread_id]
+    @branch.save
     end
+
 
       def create
     @topicthread = Topicthread.new(topicthread_params) 

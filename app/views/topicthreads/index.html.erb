@@ -10,8 +10,7 @@
 <p id="notice"><%= notice %></p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <thead style= "background-color: rgba(255, 255, 255, 0)" >
-   <% @topicthreads.each do |topicthread| %>
-  <thead><%= link_to topicthread.name, topicthread_path(topicthread) %></thead>
+    <thead><strong> Forum topic threads</strong></thead>
    <tbody>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <thead style= "background-color: #379392" >
@@ -25,9 +24,17 @@
     </tr>
   </thead>
  
-  <% render partial: "branchlist" %>
+  
    </tbody>
+  <% for topicthread in @topicthreads  %>
+   <%= link_to topicthread.name, topicthread_path(topicthread) %> <br />
+   <% for branch in topicthread.branches %>
+    <%= branch.title %>
+     <% end %>
    <% end %>
+    
+
+  
 </table>
 
 

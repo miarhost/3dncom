@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-    before_action :set_branch, only: [:show, :edit, :update, :destroy]
+    #before_action :set_branch, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_admin!
 
   # GET /branches
@@ -12,7 +12,7 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-  end
+ end
 
   def new
     @branch = Branch.new
@@ -23,7 +23,7 @@ class BranchesController < ApplicationController
   end
 
   def create
-    @branch = Branch.new(branch_params) 
+    
     @branch.topicthread_id = params[:topicthread_id]
     respond_to do |format|
       if @branch.save
@@ -52,7 +52,7 @@ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_branch
+   def set_branch
       @branch = Branch.find(params[:id])
     end
 
