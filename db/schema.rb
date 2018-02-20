@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215124233) do
+ActiveRecord::Schema.define(version: 20180220125809) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180215124233) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "topicthread_id"
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_branches_on_admin_id"
     t.index ["topicthread_id"], name: "index_branches_on_topicthread_id"
   end
 

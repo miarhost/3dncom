@@ -1,6 +1,6 @@
 class BranchesController < ApplicationController
     #before_action :set_branch, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!, only: [:create, :edit, :destroy]
 
   # GET /branches
   # GET /branches.json
@@ -23,12 +23,12 @@ class BranchesController < ApplicationController
   end
 
   def create
-    
+    @branch = current_admin.branches.build(branch_params)
     @branch.topicthread_id = params[:topicthread_id]
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to @branch, notice: 'Thread saved.' }
-        format.json { render :show, status: :created, location: @branch }
+        format.html { redirect_to @branches, notice: 'Thread saved.' }
+        format.json { render :show, status: :created, location: @branches }
       else
         format.html { render :new }
         format.json { render json: @branch.errors, status: :unprocessable_entity }
@@ -52,9 +52,9 @@ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-   def set_branch
-      @branch = Branch.find(params[:id])
-    end
+  # def set_branch
+     # @branch = Branch.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
