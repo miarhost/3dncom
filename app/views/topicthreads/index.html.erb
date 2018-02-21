@@ -10,7 +10,13 @@
 <p id="notice"><%= notice %></p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <thead style= "background-color: rgba(255, 255, 255, 0)" >
-    <thead><strong> Forum topic threads</strong></thead>
+    <thead><strong> Forum topic threads</strong></thead> <br />
+    <% for topicthread in @topicthreads  %> <br />
+     <%= link_to topicthread.name, topicthread_path(topicthread) %> <br />
+
+
+     
+      </thead>
    <tbody>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <thead style= "background-color: #379392" >
@@ -22,21 +28,22 @@
       <th>Messages</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
  
+       <% for branch in topicthread.branches %> <br />
+        <%= link_to branch.title, branch_path(branch) %> <br />
   
    </tbody>
-  <% for topicthread in @topicthreads  %>
-   <%= link_to topicthread.name, topicthread_path(topicthread) %> <br />
-   <% for branch in topicthread.branches %>
-    <%= branch.title %>
-     <% end %>
-   <% end %>
+  
+  
+
+    
+  
     
 
   
 </table>
-
+      <% end %>
+      <% end %>
 
 <br>
 
