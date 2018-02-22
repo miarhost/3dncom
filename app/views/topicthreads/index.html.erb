@@ -17,7 +17,7 @@
 
      
       </thead>
-   <tbody>
+   
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <thead style= "background-color: #379392" >
       <tr>
@@ -28,9 +28,16 @@
       <th>Messages</th>
       <th colspan="3"></th>
     </tr>
- 
-       <% for branch in topicthread.branches %> <br />
-        <%= link_to branch.title, branch_path(branch) %> <br />
+  </thead>
+ <tbody>
+  <tr>
+      <% for branch in topicthread.branches %></td> 
+       <td><%= link_to branch.title, branch_path(branch) %></td><br />
+        <td><%= branch.topics.last.name %></td>
+        <td><%= gravatar_for(branch.topics.last.user, 25) %></td>
+        <td><%= branch.topics.last.created_at %></td>
+        <td><%= pluralize(branch.topics.last.messages.count, "messages") %>
+    </tr>
   
    </tbody>
   
@@ -39,8 +46,8 @@
     
   
     
-
-  
+</table>
+  </tbody>
 </table>
       <% end %>
       <% end %>
