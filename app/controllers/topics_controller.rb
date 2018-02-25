@@ -35,12 +35,14 @@ def create
   @topic = current_user.topics.build(topic_params)
    @topic.user_id = @topic.user.id
     @topic.branch_id = params[:branch_id]
-  if  @topic.save
- redirect_to branch_path(@topic.branch[:id])
+   
+   if @topic.save
+  flash[:success] = 'Your topic is saved'
+redirect_to branch_path(@topic.branch[:id])
    else
-    flash[:warning] = "Your topic can't be saved!"
-     redirect_to branch_path(@topic.branch[:id])
+    redirect_to topics_path(@topics)
    end
+   
 end
 
   # PATCH/PUT /topics/1

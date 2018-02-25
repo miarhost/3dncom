@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-    #before_action :set_branch, only: [:show, :edit, :update, :destroy]
+    before_action :set_branch, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:create, :edit, :destroy]
 
   # GET /branches
@@ -12,6 +12,7 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
+
  end
 
   def new
@@ -52,9 +53,9 @@ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  # def set_branch
-     # @branch = Branch.find(params[:id])
-    #end
+   def set_branch
+      @branch = Branch.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params

@@ -6,14 +6,16 @@ class TopicthreadsController < ApplicationController
   def index 
     @topicthreads = Topicthread.all
         @branch = Branch.new
+       
+   
     
-    @branch.save
   end
 
 
 
 	def new 
 	 @topicthread = Topicthread.new
+
 	end
 
 

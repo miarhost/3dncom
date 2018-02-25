@@ -21,11 +21,11 @@ Rails.application.routes.draw do
 
       resources :topicthreads do
        resources :branches
+     
         end
-
-       resources :branches do
-         resources :topics
-       end 
+     resources :branches do 
+       resources :topics
+     end
    
     resources :topics do
        resources :messages
@@ -35,9 +35,9 @@ Rails.application.routes.draw do
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session
        #end
-         resources :topics
+        resources :topics
+         resources :messages
            resources :comments
-            resourcces :messages
             
           end # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 
