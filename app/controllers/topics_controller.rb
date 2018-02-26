@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
- before_action :set_topic, only: [:show, :edit, :update]
-before_action :authenticate_user!, only: [:edit, :update]
+ #before_action :set_topic, only: [:create, :show, :edit, :update]
+ before_action :set_branch, only: [:create]
+before_action :authenticate_user!, only: [:create, :edit, :update]
 before_action :authenticate_admin!, only: [:destroy]
 
 	def index
@@ -37,8 +38,10 @@ def create
     @topic.branch_id = params[:branch_id]
    
    if @topic.save
-  flash[:success] = 'Your topic is saved'
-redirect_to branch_path(@topic.branch[:id])
+  #flash[:success] = 'Your topic is saved'
+#redirect_to branch_path(@topic.branch[:id])
+format.html { redirect_to @topic.branch[:id], notice: 'Topic saved.' }
+        format.json { render :show, status: :created, location: @branch }
    else
     redirect_to topics_path(@topics)
    end
@@ -74,13 +77,16 @@ end
 
        private
 
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
+    #def set_topic
+      #@topic = Topic.find(params[:id])
+    #end
 
+   def set_branch
+     @branch = Branch.find_by(id: :branch_id)
+   end
 
     def topic_params
-      params.require(:topic).permit(:name, :body)
+      params.require(:topic).permit(:name, :body, :branch_id)
     end
 end
 
