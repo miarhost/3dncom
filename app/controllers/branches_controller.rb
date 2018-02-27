@@ -6,13 +6,15 @@ class BranchesController < ApplicationController
   # GET /branches.json
   def index
     @branches = Branch.all
-  end
+   end
 
   # GET /branches/1
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-
+     @topic = Topic.new
+     @topic.branch_id = session[:branch_id]
+    @topic.save
  end
 
   def new
@@ -54,7 +56,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
    def set_branch
-      @branch = Branch.find(params[:id])
+      @branch = Branch.find_by_id(session[:branch_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
