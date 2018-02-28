@@ -56,7 +56,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
    def set_branch
-      @branch = Branch.find_by_id(session[:branch_id])
+      @branch = Branch.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,8 +1,9 @@
 class TopicsController < ApplicationController
- #before_action :set_topic, only: [:create, :show, :edit, :update]
- before_action :set_branch, only: [:create]
+ before_action :set_topic, only: [:create, :show, :edit, :update]
+ #before_action :set_branch, only: [:create]
 before_action :authenticate_user!, only: [:create, :edit, :update]
 before_action :authenticate_admin!, only: [:destroy]
+
 
 	def index
 		@topics = Topic.all
@@ -21,13 +22,13 @@ before_action :authenticate_admin!, only: [:destroy]
   
 
 	end
-
-	def new
-	@topic = Topic.new
+  def new
+  @topic = Topic.new
        if !user_signed_in?
   redirect_to new_user_session_path
  end
     end
+
     
     def edit
     end
@@ -36,13 +37,13 @@ def create
   @topic = current_user.topics.build(topic_params)
    @topic.user_id = @topic.user.id
   @topic.branch_id = session[:branch_id]
-   if @topic.save
-  #flash[:success] = 'Your topic is saved'
-#redirect_to branch_path(@topic.branch[:id])
-format.html { redirect_to @topic.branch[:id], notice: 'Topic saved.' }
-        format.json { render :show, status: :created, location: @branch }
+   if  @topic.save
+  flash[:success] = 'Your topic is saved'
+redirect_to branch_path(@topic.branch)
+#format.html { redirect_to @topic.branch_id, notice: 'Topic saved.' }
+        #format.json { render :show, status: :created, location: @branch }
    else
-    redirect_to topics_path(@topics)
+    redirect_to topics_path
    end
    
 end
@@ -76,16 +77,16 @@ end
 
        private
 
-    #def set_topic
-      #@topic = Topic.find(params[:id])
-    #end
+    def set_topic
+      @topic = Topic.find_by_id(params[:id])
+    end
 
-   def set_branch
-     @branch = Branch.find_by(session[:branch_id])
-   end
+  # def set_branch
+    # @branch = Branch.find_by(session[:branch_id])
+  # end
 
     def topic_params
-      params.require(:topic).permit(:name, :body, session[:branch_id])
+      params.require(:topic).permit(:name, :body, :branch_id)
     end
 end
 

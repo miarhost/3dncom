@@ -30,8 +30,8 @@
     <%= form.submit %>
   </div>
 
-  <div class="hidden_field">
+  <div class="actions">
     <%= form.hidden_field :branch_id %>
-    <%= hidden_field_tag 'selected', 'none'  %>
+    <%= hidden_field_tag id: :branch_id  %>
   </div>
 <% end %>
