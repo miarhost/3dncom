@@ -13,7 +13,7 @@ class BranchesController < ApplicationController
   def show
 @branch = Branch.find(params[:id])
      @topic = Topic.new
-     @topic.branch_id = session[:branch_id]
+     @topic.branch_id = @branch.id
     @topic.save
  end
 
@@ -27,6 +27,7 @@ class BranchesController < ApplicationController
 
   def create
     @branch = current_admin.branches.build(branch_params)
+    @branch.admin_id = @branch.admin.id
     @branch.topicthread_id = params[:topicthread_id]
     respond_to do |format|
       if @branch.save

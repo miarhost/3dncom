@@ -5,7 +5,7 @@ class TopicthreadsController < ApplicationController
 
   def index 
     @topicthreads = Topicthread.all
-        @branch = Branch.new
+     
        
    
     
@@ -23,7 +23,7 @@ class TopicthreadsController < ApplicationController
 	def show
 	@topicthread = Topicthread.find(params[:id])
           @branch = Branch.new
-     @branch.topicthread_id = params[:topicthread_id]
+    @branch.topicthread_id = @topicthread.id
     @branch.save
     end
 
