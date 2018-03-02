@@ -26,12 +26,14 @@
     <%= form.text_area :body, id: :topic_body %>
   </div>
 
+   <div class="field">
+   <%= form.label :branch %>
+    <%= topic.branch_id %>
+    </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 
-  <div class="actions">
-    <%= form.hidden_field :branch_id, :value => params[:branch_id] %>
-   
-  </div>
+ 
 <% end %>

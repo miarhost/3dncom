@@ -1,11 +1,9 @@
 class Branch < ApplicationRecord
-	has_many :topics, inverse_of: :branch, dependent: :destroy
+	has_many :topics, :foreign_key => :branch_id, inverse_of: :branch
 
-	accepts_nested_attributes_for :topics
+	
 
-	belongs_to :topicthread, dependent: :destroy, :optional => true 
+	belongs_to :topicthread
+	
 	belongs_to :admin
-
-
-
 end

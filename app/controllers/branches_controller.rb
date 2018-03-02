@@ -12,9 +12,10 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
 @branch = Branch.find(params[:id])
-     @topic = Topic.new
-     @topic.branch_id = @branch.id
-    @topic.save
+@topic = Topic.new
+@topic.branch_id = @branch.id || @topic.branch_id = session[:branch_id] 
+@topic.save
+
  end
 
   def new

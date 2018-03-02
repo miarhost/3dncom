@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session
        #end
-        resources :topics 
+        
          resources :messages
            resources :comments
        
