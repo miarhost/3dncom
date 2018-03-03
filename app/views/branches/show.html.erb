@@ -38,8 +38,8 @@
 
 <br>
 
-
-<%= link_to 'New Topic', new_topic_path %>
+<%= render partial: 'topics/form' %>
+<%= link_to 'New Topic', new_branch_topic_path(@topic.branch_id) %>
 
 
 

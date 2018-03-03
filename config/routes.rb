@@ -16,11 +16,13 @@ Rails.application.routes.draw do
       }
   
         resources :topicthreads do
-           resources :branches do 
-              resources :topics
+        resources :branches
      end
-    end
+    
 
+               resources :branches do
+              resources :topics
+             end
 
     devise_scope :admin do
     get "admin/home"=> "admin/sessions#home", :as => 'admin'

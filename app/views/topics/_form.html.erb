@@ -1,15 +1,5 @@
-<%= form_with(model: topic, local: true) do |form| %>
-  <% if topic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+ <%= form_for [ @branch, @topic ] do |form| %> 
 
-      <ul>
-      <% topic.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :topic_name %>
@@ -27,8 +17,8 @@
   </div>
 
    <div class="field">
-   <%= form.label :branch %>
-    <%= topic.branch_id %>
+   <%= form.label :branch_name %>
+    <%= @topic.branch_id %>
     </div>
 
   <div class="actions">
