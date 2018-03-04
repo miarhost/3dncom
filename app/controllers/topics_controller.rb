@@ -26,10 +26,9 @@ before_action :authenticate_admin!, only: [:destroy]
   
    def new
   @topic = Topic.new
-         if !user_signed_in?
-  redirect_to new_user_session_path
+        
 
-end
+
   end
     
     def edit
@@ -39,6 +38,9 @@ def create
   @topic = current_user.topics.build(topic_params) || @topic = @branch.topics.build(topic_params)
     @topic.user_id = @topic.user.id
   @topic.branch_id = params[:branch_id] || @topic.branch_id = session[:branch_id] 
+   if !user_signed_in?
+  redirect_to new_user_session_path
+   end
  if @topic.save
   flash[:success] = 'Your topic is saved'
   redirect_to branch_topics_path(@topic.branch_id)

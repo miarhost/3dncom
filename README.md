@@ -39,3 +39,7 @@ Postgres on production
 * Deployment instructions
 
 * Tested by Minitest
+
+/.env
+
+.env
