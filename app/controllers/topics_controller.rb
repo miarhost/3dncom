@@ -80,7 +80,7 @@ end
      end
 
          def topic_params
-      params.require(:topic).permit(:name, :body, :branch_id)
+      params.require(:topic).permit(:name, :body, :branch_id, :image)
     end
 
        private

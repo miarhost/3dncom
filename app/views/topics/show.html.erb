@@ -23,6 +23,8 @@
 <%= render partial: 'topics/message', collection: @topic.messages %>
 <%= render partial: 'messages/form' %>
 
+<%= image_tag(@topic.image.url, alt: 'Image') if @topic.image? %>
+
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Destroy', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', topics_path %>

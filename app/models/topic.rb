@@ -8,4 +8,7 @@ class Topic < ApplicationRecord
 	  mount_uploader :images, ImageUploader
   serialize :images, JSON
 	
+ 
+
+validates :image, presence: true, allow_nil: true
 end
