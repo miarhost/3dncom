@@ -20,5 +20,12 @@
     <%= form.submit %>
   </div>
 
+    <p>
+    <label>Upload image</label>
+    <%= image_tag(@topic.image_url) if @topic.image? %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image %>
+  </p>
+
 <% end %>
 

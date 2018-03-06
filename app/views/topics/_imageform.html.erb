@@ -1,7 +1,7 @@
 <%= form_for [ @branch, @topic ], html: { multipart: true } do |f| %>
   <p>
     <label>Upload image</label>
-    <%= image_tag(@topic.image_url) if @user.image? %>
+    <%= image_tag(@topic.image_url) if @topic.image? %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image %>
   </p>
