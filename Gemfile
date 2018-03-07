@@ -33,8 +33,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'fog-rackspace', '~> 0.1.5'
 gem 'mini_magick'
 gem 'carrierwave', '~> 0.11.2'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'sqlite3'
