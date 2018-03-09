@@ -1,19 +1,9 @@
 #require 'carrierwave/orm/activerecord'
-require 'carrierwave/storage/fog'
+#require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
 
-  if Rails.env.development? || Rails.env.test?
-     CarrierWave.configure do |config|
-    config.storage = :file 
-  end
-end
 
-if Rails.env.production? 
-  Carrierwave.configure do |config| 
-    config.storage = :fog
-  end
-end
                     # required
   config.fog_credentials = {
     provider:              'AWS',                        # required
@@ -26,4 +16,16 @@ end
   config.fog_directory  = ENV["AWS_BUCKET"]                                 # required
   config.fog_public     = false                                                 # optional, defaults to true
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
+end
+
+  if Rails.env.development? || Rails.env.test?
+     CarrierWave.configure do |config|
+    config.storage = :file 
+  end
+end
+
+if Rails.env.production? 
+  Carrierwave.configure do |config| 
+    config.storage = :fog
+  end
 end
