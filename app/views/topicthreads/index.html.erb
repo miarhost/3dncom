@@ -7,12 +7,12 @@
 </div>
 
 
-<p id="notice"><%= notice %></p>
+<p id="notice"><strong><%= "Forum Threads" %></strong></p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <thead style= "background-color: rgba(255, 255, 255, 0)" >
-    <thead><strong> Forum topic threads</strong></thead> <br />
-    <% for topicthread in @topicthreads  %> <br />
-     <%= link_to topicthread.name, topicthread_path(topicthread) %> <br />
+    
+    <% for topicthread in @topicthreads %><br />
+     <%= link_to topicthread.name, topicthread_path(topicthread) %><br />
 
 
      
@@ -30,28 +30,24 @@
     </tr>
   </thead>
  <tbody>
-  <tr>
-      <% for branch in topicthread.branches %></td> 
-       <td><%= link_to branch.title, branch_path(branch) %></td><br />
+        <% for branch in topicthread.branches %>
+    <tr>
+       <td><%= link_to branch.title, branch_path(branch) %></td>
         <td><%= branch.topics.last.name %></td>
         <td><%= gravatar_for(branch.topics.last.user, 25) %></td>
         <td><%= branch.topics.last.created_at %></td>
-        <td><%= pluralize(branch.topics.last.messages.count, "messages") %>
+        <td><%= pluralize(branch.topics.last.messages.count, "messages") %></td>
+       <% end %>
     </tr>
-  
-  
-  
-
-    
   
     
 </table>
   </tbody>
 </table>
+      
       <% end %>
-      <% end %>
+
 
 <br>
-
 
 
