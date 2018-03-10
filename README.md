@@ -1,5 +1,5 @@
-3D News  is specialized pages gathering about 3ds Max, Maya and Blender with registered user's forum, articles and messaging. Articles and forum threads are added and deleted by admin, where forum topics, messages and articles' comments are created by users. 
-'3D MODELLER NEWS'
+3D modelling site named for ' highpolygonal' 
+ about 3ds Max, Maya and Blender with registered user's forum, articles and messaging. Articles, forum threads and branches are added and deleted by admin, where forum topics, messages and articles' comments are created by registered users
 *** SEE AT BROWSER ***
 https://highpoly.herokuapp.com/
 
@@ -17,7 +17,10 @@ App's major features
   Foreman gem for mailer configurations |
   Minitest |
   jquery - rails |
-  opal -ferro
+  opal -ferro |
+  carrierwave |
+  figaro |
+  fog - aws
  
   
   ______________________
