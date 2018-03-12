@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+
   root 'landing#home'
   get '/home', to: 'landing#home'
   get '/about', to: 'landing#about'
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session
        #end
-        
+        get 'user/subscription', to: 'devise/mailers#subscription', :as => 'user'
          resources :messages
            resources :comments
        
