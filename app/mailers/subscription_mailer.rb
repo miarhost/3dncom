@@ -2,7 +2,7 @@ class SubscriptionMailer < Devise::Mailer
 
 layout 'mailers'
 
-default_template_path: 'devise/mailer'
+default template_path: 'devise/mailer'
 def new 
 @subscription = SubscriptionMailer.new(params[:subscription])
 end
