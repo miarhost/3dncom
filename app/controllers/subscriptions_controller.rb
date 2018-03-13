@@ -1,14 +1,12 @@
-class SubscriptionMailer < Devise::Mailer
+class SubscriptionsController < ApplicationController
 
-layout 'mailers'
 
-default_template_path: 'devise/mailer'
-def new 
-@subscription = SubscriptionMailer.new(params[:subscription])
+	def new 
+@subscription = Subscription.new(params[:subscription])
 end
 
 def create
-@subscription = SubscriptionMailer.new(params[:subscription])
+@subscription = Subscription.new(params[:subscription])
  respond_to do |format|
       if @subscription.save
         
@@ -21,5 +19,10 @@ def create
      
 end
 
+private
+
+def subscription_params
+	params.require(:subscription).permit(:email)
+end
 
 end
