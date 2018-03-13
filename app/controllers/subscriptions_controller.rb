@@ -16,7 +16,7 @@ def create
           format.html { redirect_to home_path, notice: 'Error while mailing, sorry.' }
           format.json { render json: @subscription.errors, status: :unprocessable_entity }
         end
-     
+end     
 end
 
 private
