@@ -15,7 +15,8 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = ENV["S3_BUCKET"]                                 # required
   config.fog_public     = false                                                 # optional, defaults to true
-  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
+  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
+  config.cache_dir = "#{Rails.root}/public/uploads/tmp" # optional, defaults to {}
 end
 
   if Rails.env.development? || Rails.env.test?
@@ -29,5 +30,5 @@ if Rails.env.production?
     config.storage = :fog
   end
 
-  config.cache_dir = "#{Rails.root}/public/uploads/tmp"
+
 end
