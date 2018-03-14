@@ -28,4 +28,6 @@ if Rails.env.production?
   CarrierWave.configure do |config| 
     config.storage = :fog
   end
+
+  config.cache_dir = "#{Rails.root}/public/uploads/tmp"
 end
