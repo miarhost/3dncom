@@ -76,6 +76,17 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+CarrierWave.configure do |config|
+
+  config.fog_credentials = {
+    provider:              'AWS',                        # required
+    aws_access_key_id:     ENV["S3_ACCESS_KEY"],                       # required
+    aws_secret_access_key: ENV["S3_SECRET_KEY"],                        # required
+    region:                'eu-west-2',                  # optional, defaults to 'us-east-1'
+    host:                  'https://s3.eu-west-2.amazonaws.com',             # optional, defaults to nil
+    endpoint:              'https://s3.eu-west-2.amazonaws.com' # optional, defaults to nil
+  }
+end
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
