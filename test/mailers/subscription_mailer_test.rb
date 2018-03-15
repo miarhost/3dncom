@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
+class SubscriptionMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end
