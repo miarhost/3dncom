@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       #as :user do 
       #get 'signin', to: 'devise/sessions#new', as: :new_user_session
        #end
-        get 'user/subscription', to: 'devise/mailers#subscription', :as => 'user'
+        #get 'user/subscription', to: 'devise/mailers#subscription', :as => 'user'
          resources :messages
            resources :comments
        
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
        resources :messages
     end
 
-
+ get 'subscription', to: 'mailers#subscription_mailer', as: 'submit'
             
            # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
     

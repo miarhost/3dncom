@@ -1,16 +1,23 @@
 class SubscriptionMailer < ApplicationMailer
-default_from: "rghostme@gmail.com"
+default from: "rghostme@gmail.com"
 
+#def initialize(submail)
+#@submail = submail
+#end
 
+#def new
+#@submail = SubscriptionMailer.new
+#end
 
 def subscription(email)
-email = gets.chomp
-@subemail = email
-if @subemail == @user.email
-mail(to: email, subject: "Your subscription was set")
-else
-redirect_to new_user_path(@user)
-end
+#@submail = email
+
+mail to: email
+redirect_to subscription
+#@submail.save
+#else
+#redirect_to new_user_path(@user)
+#end
 
 end
 
