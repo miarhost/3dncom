@@ -45,7 +45,7 @@ Rails.application.routes.draw do
        resources :messages
     end
 
- get 'subscription', to: 'mailers#subscription_mailer', as: 'submit'
+ #get 'home/:subscription_email', to: 'subscription_mailer#subscription'
             
            # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
     

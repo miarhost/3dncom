@@ -66,6 +66,12 @@ class ArticlesController < ApplicationController
     end
      end
   	 
+  def subscription(email)
+    if @article.save
+        SubscriptionMailer.subscription(email, self)
+
+   end
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
