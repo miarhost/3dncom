@@ -158,10 +158,11 @@
           <div class="col-md-6">
             <h2>Subscribe to Newsletter</h2>
             <p class="text-big">Interested in 3ds Max, Maya, Cinema 4D or Blender? Don't miss any news.</p>
+            <%= button_to 'Subscribe', redirect_to subscription %>
           </div>
           <div class="col-md-8">
             <div class="form-holder">
-              <form action="<%= action: :subscription(@article) %>">
+              <form action="/subscription_mailer/subscription">
                 <div class="form-group">
                   <input type="email" name="email" id="email" placeholder="Type your email address">
                   <button type="submit" class="submit">Subscribe</button>
