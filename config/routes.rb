@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-
   root 'landing#home'
   get '/home', to: 'landing#home'
   get '/about', to: 'landing#about'

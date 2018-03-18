@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
+
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -46,6 +47,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params) 
+        SubscriptionMailer.subscription(email, self)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -65,13 +67,7 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
      end
-  	 
-  def subscription(email)
-    if @article.save
-        SubscriptionMailer.subscription(email, self)
-
-   end
- end
+   
 
   private
     # Use callbacks to share common setup or constraints between actions.
