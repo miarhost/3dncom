@@ -10,6 +10,8 @@
   <%= @article.body %>
 </p>
 
+<%= image_tag(@article.image.url, alt: 'Image') if @article.image? %>
+
 <h3>Comments</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'comments/form' %>

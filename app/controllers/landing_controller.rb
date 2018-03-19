@@ -12,10 +12,5 @@ class LandingController < ApplicationController
    @image_urls = ["night.jpg", "6.jpg", "studio.jpg"]
     end
  
- def subscription(email)
- 	SubscriptionMailer.subscription(email)
- end
-
-  
     
 end

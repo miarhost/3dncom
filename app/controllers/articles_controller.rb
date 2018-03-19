@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
   	@comment = Comment.new
   	@comment.article_id = @article.id
   	@comment.save
@@ -32,6 +33,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
 
@@ -47,7 +49,6 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params) 
-        SubscriptionMailer.subscription(email, self)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -68,15 +69,26 @@ class ArticlesController < ApplicationController
     end
      end
    
+  def subscribe(email)
+    @submail = email
+    SubscriptionMailer.subscribe(@submail)
+    if @submail.save
+      format.html { render 'subscription' }
+      format.text { render 'subscription' }
+    else
+    end
+  end
+       def article_params
+      params.require(:article).permit(:title,:body, :image, :image_cache)
+    end
 
-  private
+private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title,:body)
-    end
+
 end
