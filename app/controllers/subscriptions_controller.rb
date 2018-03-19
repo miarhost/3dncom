@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
 			format.html { render 'subscription' }
 			format.text { render 'subscription' }
 		else
+		end
     end
 
 end
