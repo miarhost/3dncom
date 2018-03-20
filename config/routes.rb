@@ -42,7 +42,11 @@ Rails.application.routes.draw do
     resources :topics do
        resources :messages
     end
+    
 
+    resources :subscriptions #do
+     # get "subsriptions"=> 'landing#home'
+   # end
  #get 'home/:subscription_email', to: 'subscription_mailer#subscription'
             
            # , path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
