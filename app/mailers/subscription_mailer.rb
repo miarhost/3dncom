@@ -11,9 +11,10 @@ default from: "rghostme@gmail.com"
 
 
 
-def subscribe(email)
+def subscribe(email, subscription)
+	@subscription = subscription
 #@submail = email
-@submail = email 
+@email = email 
 mail(to: email, subject: "Your subscription is set")
  #redirect_to subscription
 #@submail.save
