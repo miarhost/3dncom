@@ -1,7 +1,13 @@
 class SubscriptionMailer < ApplicationMailer
+	require 'mail'
+
 default from: "rghostme@gmail.com"
 
-#def initialize(submail)
+#def initialize(email)
+	#@email = email
+	#@email = Mail::Address.new 
+	#@email.format
+#end
 #@submail = submail
 #end
 
@@ -13,6 +19,9 @@ default from: "rghostme@gmail.com"
 
 def subscribe(email, subscription)
 	@subscription = subscription
+	@email = email
+		@email = Mail::Address.new email
+			@email.format
 #@submail = email
 @email = email 
 mail(to: email, subject: "Your subscription is set")

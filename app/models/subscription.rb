@@ -1,11 +1,16 @@
 class Subscription < ApplicationRecord
-	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	#validates :email, presence: true, length: { maximum: 255 },
-	                  #format: { with: VALID_EMAIL_REGEX }
+	#before_save {self.email = self.email.downcase}
+	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+	#validates :email, #presence: true,
+	         #length: { minimum: 12, maximum: 255 },
+	         #format: {with: VALID_EMAIL_REGEX }#,
+	         #uniqueness: { case_sensitive: false }
 	                  
 
 	def subscribe(email)	
 	@email = email	
+			@email = Mail::Address.new 
+	@email.format
 		SubscriptionMailer.subscribe(email)
     end
 end

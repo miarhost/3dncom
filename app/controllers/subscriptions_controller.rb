@@ -1,15 +1,18 @@
 class SubscriptionsController < ApplicationController
+	require 'mail'
  skip_before_action :verify_authenticity_token  
-# before_action :set_subscription, only: [:show]
+#before_action :set_subscription, only: [:create, :show]
 	def new
 		@subscription = Subscription.new
 	end
 
 	def create
-		#@subscription = Subscription.new(subscription_params)
-		@subscription = Subscription.new
+		@subscription = Subscription.new#(subscription_params)
 		SubscriptionMailer.subscribe(@email)
-		
+			@email = Mail::Address.new(:email)
+			
+	#@email.format
+	#@email =  "/home?email={form_field :email}"
 		if @subscription.save
 			flash[:success] = 'Your subscription is set'
 			render new_subscription_path
@@ -24,8 +27,8 @@ class SubscriptionsController < ApplicationController
     	@subscription = Subscription.find([:id])
     end
 
-  
-#private
+  #private
+
     #def subscription_params
     	#params.require(:subscription).permit(:email)
     #end

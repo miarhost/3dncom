@@ -164,8 +164,8 @@
             <div class="form-holder">
               <form method="post" action="/subscriptions">
                 <div class="form-group">
-                  <input type="email" name="email" id="email" placeholder="Type your email address">                     
-                  <button type="submit" class="submit">Subscribe</button>
+                  <input type="<%= Mail::Address.new :email %>" name="<%= :email %>" id="<%= :email %>" placeholder="Type your email address">                     
+                  <button type="submit"  class="submit">Subscribe</button>
                  
                 </div>
                 </div>
