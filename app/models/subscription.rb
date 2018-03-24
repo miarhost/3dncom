@@ -5,12 +5,4 @@ class Subscription < ApplicationRecord
 	         #length: { minimum: 12, maximum: 255 },
 	         #format: {with: VALID_EMAIL_REGEX }#,
 	         #uniqueness: { case_sensitive: false }
-	                  
-
-	def subscribe(email)	
-	@email = email	
-			@email = Mail::Address.new 
-	@email.format
-		SubscriptionMailer.subscribe(email)
-    end
 end

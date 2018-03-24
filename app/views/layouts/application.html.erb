@@ -31,6 +31,13 @@
           </ul>
         </nav>
       </div>
+
+      <% if flash[:success] %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+
     </header>
     <div class="container">
       <%= yield %>

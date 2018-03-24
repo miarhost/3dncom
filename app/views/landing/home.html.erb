@@ -162,14 +162,13 @@
           </div>
                    <div class="col-md-8">
             <div class="form-holder">
-              <form method="post" action="/subscriptions">
+
+              <%= form_for(@subscription, path: '/subscriptions', method: :post) do |f| %>
                 <div class="form-group">
-                  <input type="<%= Mail::Address.new :email %>" name="<%= :email %>" id="<%= :email %>" placeholder="Type your email address">                     
-                  <button type="submit"  class="submit">Subscribe</button>
-                 
+                  <%= f.email_field :email, placeholder: 'Type your email address' %>
+                  <%= f.button 'Subscribe', class: 'submit', type: 'submit' %>
                 </div>
-                </div>
-           
+              <% end %>
             </div>
           </div>
         </div>
