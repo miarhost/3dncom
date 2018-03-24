@@ -10,18 +10,19 @@ class SubscriptionsController < ApplicationController
 
   def create
 		@subscription = Subscription.new#(subscription_params)
-		SubscriptionMailer.subscribe(@email)
-			@email = Mail::Address.new(:email)
+		# SubscriptionMailer.subscribe(@email)
+    # @email = Mail::Address.new(:email)
 			
     #@email.format
     #@email =  "/home?email={form_field :email}"
 
 		if @subscription.save
 			flash[:success] = 'Your subscription is set'
-			render new_subscription_path
+			#render new_subscription_path
 			#redirect_to home_path
 			#format.html { render 'subscribe' }
 			#format.text { render 'subscribe' }
+      redirect_to home_path
 		end
   end
 
