@@ -20,7 +20,8 @@ App's major features
   opal -ferro |
   carrierwave |
   figaro |
-  fog - aws
+  fog - aws |
+  aws-sdk
  
   
   ______________________
