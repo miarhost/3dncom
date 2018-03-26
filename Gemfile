@@ -34,6 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'fog-aws', '~> 2.0'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 gem 'mini_magick'
 gem 'carrierwave', '~> 0.11.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
