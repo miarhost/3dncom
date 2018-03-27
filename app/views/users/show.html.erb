@@ -1,0 +1,19 @@
+<p id="notice">< User's profile ></p>
+
+<p>
+  <strong><%= @user.name %></strong>
+  
+</p>
+<%= @user.email %>
+<p>
+ 
+ <p>
+  <%= image_tag(@user.image.url, alt: 'image') if @user.image? %>
+</p>
+
+<% if @user.image false %>
+<div class="gravatar">
+<%= gravatar_for(@user,40) %>
+<div class="img-img-responsive">
+</div>
+<% end %> 

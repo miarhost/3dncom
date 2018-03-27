@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
 	belongs_to :topic
 	belongs_to :article
+	belongs_to :user
 
 	
   #has_attached_file :image, :styles => {:thumb => '300x300#'}

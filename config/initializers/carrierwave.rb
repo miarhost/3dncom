@@ -27,6 +27,4 @@ if Rails.env.production?
   CarrierWave.configure do |config| 
     config.storage = :fog
   end
-
-
 end

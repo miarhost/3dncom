@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :topics
   has_many :messages, through: :topics, dependent: :destroy 
 
-
+  mount_uploader :image, ImageUploader
 
 
 
