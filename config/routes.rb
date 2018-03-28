@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'home(/:topics)', to: 'landing#home'
   get 'home(/:branches)', to: 'landing#home'
   get 'home(/:blender)', to: 'landing#home'
+  get 'home(:profile)', to: 'users#show'
 
     devise_for :admins, controllers: {
                sessions: 'admins/sessions'
@@ -60,6 +61,8 @@ Rails.application.routes.draw do
   resources :articles do
   	resources :comments
   end
+
+  resources :users 
     
 
 end
