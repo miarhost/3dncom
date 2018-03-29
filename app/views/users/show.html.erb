@@ -7,11 +7,13 @@
 <%= @user.email %>
 <p>
  
- <p>
-  <%= image_tag(@user.image.url, alt: 'image') if @user.image? %>
-</p>
 
-<% if @user.image? == false %>
+ 	<% if @user.image? %>
+  <%= image_tag(@user.image.url, alt: 'image') %>
+
+
+
+<% else %>
 <div class="gravatar">
 <%= gravatar_for(@user,40) %>
 <div class="img-img-responsive">

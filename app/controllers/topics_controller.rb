@@ -31,8 +31,7 @@ before_action :authenticate_admin!, only: [:destroy]
 
   end
     
-    def edit
-    end
+
 
 def create
   @topic = current_user.topics.build(topic_params) || @topic = @branch.topics.build(topic_params)
