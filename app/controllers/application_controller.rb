@@ -20,9 +20,11 @@ class ApplicationController < ActionController::Base
 	    		user_params.permit(:name, :email, :password, :image, :image_cache, :password_confirmation)
 	    	end
 	    	devise_parameter_sanitizer.permit(:sign_in) do |user_params|
-	    	 user_params.permit(:name, :email, :password, :image, :image_cache, :password_confirmation)
-	    	end
-
+	    	user_params.permit(:name, :email, :password, :image, :image_cache)
+            end
+            devise_parameter_sanitizer.permit(:account_update) do |user_params|
+            	user_params.permit(:name, :password, :password_confirmation, :current_password, :image, :image_cache)
+            end
 	    	 # devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :image, :image_cache) }
 #devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:name, :email, :password, :image, :image_cache) }
             devise_parameter_sanitizer.permit(:sign_up) do |admin_params|
@@ -31,6 +33,6 @@ class ApplicationController < ActionController::Base
 	    	devise_parameter_sanitizer.permit(:sign_in) do |admin_params|
 	    	admin_params.permit(:name, :email, :password)
 	    	end
-
+      
 	   end
 end
