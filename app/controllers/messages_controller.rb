@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 def create
   @message = current_user.messages.build(message_params)
   @message.topic_id = params[:topic_id]
-  if current_user 
+  if user_signed_in?
   @message.save
   flash[:success] = 'Your message is sent'
 redirect_to topic_path(@message.topic)
