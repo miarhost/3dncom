@@ -12,6 +12,7 @@ gem 'bootstrap', '4.0.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
 gem 'puma', '~> 3.7'
+gem 'passenger', '~> 5.2', '>= 5.2.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,7 +41,7 @@ gem 'carrierwave', '~> 0.11.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
-  gem 'sqlite3'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -56,10 +57,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "capistrano", "~> 3.10", require: false
 end
 
 group :production do
-  gem 'pg', '~> 0.18.4'
+ gem 'sqlite3'
 end
 
 group :test do
