@@ -38,7 +38,6 @@ gem 'fog-aws', '~> 2.0'
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 gem 'mini_magick'
 gem 'carrierwave', '~> 0.11.2'
-gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
 
@@ -53,6 +52,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -67,7 +67,7 @@ end
 group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest-reporters',       '1.1.14'
-   gem 'listen', '>= 3.0.5', '< 3.2'
+ 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
