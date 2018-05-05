@@ -50,4 +50,19 @@ test "password should have a minimum length" do
 	@user.password = @user.password_confirmation = "a" * 5
 	assert_not @user.valid? 
 end
+
+test "should error when user image is wrong format" do
+	@user.image
+	assert_raises(IOError) do
 end
+assert redirected_to users_url
+end
+
+test "should not access to admin's rights" do
+	delete 'article_url(:id)'
+	assert_redirected_to new_session_url(admins)
+end
+
+
+
+
